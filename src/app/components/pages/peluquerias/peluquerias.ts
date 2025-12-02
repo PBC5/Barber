@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './peluquerias.scss',
 })
 export class Peluquerias {
+nombre!: String;
+ciudad!: String;
+pueblo!: String;
+calle!: String;
+numero!: number;
 
 }

@@ -1,1 +1,33 @@
-<p>peluquerias works!</p>
+<div>
+    <div >
+        <button >Crear Peluquería</button>
+        <div >
+            <input type="text" placeholder="Buscar">
+            <button>🔍</button>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>Pueblo</th>
+                <th>Calle</th>
+                <th>Numero</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+          <!-- @for cuando esté la peticion -->
+            <tr>
+                <td>{{nombre}}</td>
+                <td>{{ciudad}}</td>
+                <td>{{pueblo}}</td>
+                <td>{{calle}}</td>
+                <td>{{numero}}</td>
+                <td><a>Modificar</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
