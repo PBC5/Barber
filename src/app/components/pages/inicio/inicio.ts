@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import {CPanel } from '../../ui/c-panel/c-panel';
 @Component({
   selector: 'app-inicio',
-  imports: [],
+  imports: [CPanel],
   templateUrl: './inicio.html',
   styleUrl: './inicio.scss',
 })

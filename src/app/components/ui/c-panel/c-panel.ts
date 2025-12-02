@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-
+import { Observable, EMPTY } from 'rxjs';
 @Component({
-  selector: 'app-c-panel',
+  selector: 'panel',
   imports: [],
   templateUrl: './c-panel.html',
   styleUrl: './c-panel.scss',
 })
 export class CPanel {
+  titulo!: String;
+  numero$: Observable<number> = EMPTY;
 
 }
