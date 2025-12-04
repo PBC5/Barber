@@ -1,16 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PeluqueriasService } from '../../../services/peluquerias.service';
 
 @Component({
   selector: 'app-peluquerias',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './peluquerias.html',
   styleUrl: './peluquerias.scss',
 })
-export class Peluquerias {
-nombre!: String;
-ciudad!: String;
-pueblo!: String;
-calle!: String;
-numero!: number;
+export class Peluquerias implements OnInit {
+  peluquerias: any[] = [];
 
+  constructor(private peluqueriasService: PeluqueriasService) { }
+
+  ngOnInit() {
+    this.peluqueriasService.getPeluquerias().subscribe(data => {
+      this.peluquerias = data;
+    });
+  }
 }

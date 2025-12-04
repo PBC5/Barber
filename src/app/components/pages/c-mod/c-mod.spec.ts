@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Categorias } from './c-categorias';
+import { CMod } from './c-mod';
 
-describe('Categorias', () => {
-  let component: Categorias;
-  let fixture: ComponentFixture<Categorias>;
+describe('CMod', () => {
+  let component: CMod;
+  let fixture: ComponentFixture<CMod>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Categorias]
+      imports: [CMod]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Categorias);
+    fixture = TestBed.createComponent(CMod);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
