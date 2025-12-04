@@ -26,7 +26,8 @@
                 <td>{{peluqueria.direccion}}</td>
                 <td>{{peluqueria.telefono}}</td>
                 <td>{{peluqueria.email}}</td>
-                <td><a>Modificar</a></td>
+                <td><a [routerLink]="['/mod']" [queryParams]="{tipo: 'peluqueria', id: peluqueria.id}">Modificar</a>
+                </td>
             </tr>
             }
         </tbody>

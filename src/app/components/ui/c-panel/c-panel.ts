@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Observable, EMPTY } from 'rxjs';
+import { Component, Input } from '@angular/core';
 @Component({
   selector: 'panel',
   imports: [],
@@ -7,6 +6,6 @@ import { Observable, EMPTY } from 'rxjs';
   styleUrl: './c-panel.scss',
 })
 export class CPanel {
-  titulo!: String;
-  numero!: number;
+  @Input() titulo!: string;
+  @Input() numero!: number;
 }
