@@ -8,6 +8,5 @@ import { Observable, EMPTY } from 'rxjs';
 })
 export class CPanel {
   titulo!: String;
-  numero$: Observable<number> = EMPTY;
-
+  numero!: number;
 }
