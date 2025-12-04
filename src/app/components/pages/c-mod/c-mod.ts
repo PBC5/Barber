@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PeluqueriasService } from '../../../services/peluquerias.service';
 import { CategoriasService } from '../../../services/categorias.service';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-c-mod',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './c-mod.html',
   styleUrl: './c-mod.scss',
 })

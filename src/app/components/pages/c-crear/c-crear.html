@@ -2,7 +2,7 @@
     <!-- Formulario de Peluquería -->
     @if (tipo === 'peluqueria') {
     <div class="form-wrapper">
-        <h2>Modificar Peluquería</h2>
+        <h2>Crear Nueva Peluquería</h2>
         <form [formGroup]="peluqueriaForm" (ngSubmit)="onSubmitPeluqueria()">
             <div class="form-group">
                 <label for="nombre">Nombre *</label>
@@ -62,7 +62,7 @@
 
             <div class="form-actions">
                 <button type="submit" [disabled]="peluqueriaForm.invalid" class="btn-submit">
-                    Guardar Cambios
+                    Crear Peluquería
                 </button>
                 <button type="button" class="btn-cancel" routerLink="/">
                     Cancelar
@@ -75,7 +75,7 @@
     <!-- Formulario de Categoría -->
     @if (tipo === 'categoria') {
     <div class="form-wrapper">
-        <h2>Modificar Categoría</h2>
+        <h2>Crear Nueva Categoría</h2>
         <form [formGroup]="categoriaForm" (ngSubmit)="onSubmitCategoria()">
             <div class="form-group">
                 <label for="nombre-categoria">Nombre *</label>
@@ -95,7 +95,7 @@
 
             <div class="form-actions">
                 <button type="submit" [disabled]="categoriaForm.invalid" class="btn-submit">
-                    Guardar Cambios
+                    Crear Categoría
                 </button>
                 <button type="button" class="btn-cancel" routerLink="/">
                     Cancelar
@@ -108,7 +108,7 @@
     <!-- Mensaje si no hay tipo especificado -->
     @if (!tipo) {
     <div class="no-data">
-        <p>No se ha especificado qué modificar. Por favor, selecciona una peluquería o categoría.</p>
+        <p>No se ha especificado qué crear. Por favor, selecciona peluquería o categoría.</p>
     </div>
     }
 </div>
