@@ -1,9 +1,10 @@
 <div class="bh-p-6">
     <div class="bh-d-flex bh-justify-between bh-align-center bh-mb-6">
-        <button class="bh-panel__button">Crear Categoría</button>
+        <button class="bh-panel__button" [routerLink]="['/crear']" [queryParams]="{tipo: 'categoria'}">Crear
+            Categoría</button>
         <div class="bh-d-flex bh-gap-2">
             <input type="text" placeholder="Buscar" class="bh-p-2 bh-rounded-md">
-            <button class="bh-panel__button">🔍</button>
+            <button class="bh-panel__button" (click)="Buscar()">🔍</button>
         </div>
     </div>
 
@@ -16,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            @for (categoria of categorias; track categoria.id) {
+            @for (categoria of CatFiltradas; track categoria.id) {
             <tr class="bh-fondo-gris">
                 <td class="bh-p-3 bh-texto-primario">{{categoria.nombre}}</td>
                 <td class="bh-p-3 bh-texto-primario">{{categoria.descripcion}}</td>
