@@ -1,6 +1,6 @@
 <div class="peluquerias-page bh-p-6">
     <div class="peluquerias-page__header bh-d-flex bh-justify-between bh-align-center bh-mb-6">
-        <button class="peluquerias-page__button bh-panel__button">Crear Peluquería</button>
+        <button class="peluquerias-page__button bh-panel__button" routerLink="/crear" [queryParams]="{tipo: 'peluqueria'}">Crear Peluquería</button>
         <div class="peluquerias-page__search bh-d-flex bh-gap-2">
             <input type="text" placeholder="Buscar" class="peluquerias-page__input bh-p-2 bh-rounded-md">
             <button class="peluquerias-page__search-btn bh-panel__button">🔍</button>

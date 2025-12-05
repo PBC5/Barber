@@ -18,4 +18,13 @@ export class UsuariosService {
             })
         );
     }
+    crearUsuario(usuario: any): Observable<any> {
+        return this.http.post<any>(`${this.apiUrl}/usuarios`, usuario);
+    }
+    modificarUsuario(id: number, usuario: any): Observable<any> {
+        return this.http.put<any>(`${this.apiUrl}/usuarios/${id}`, usuario);
+    }
+    eliminarUsuario(id: number): Observable<any> {
+        return this.http.delete<any>(`${this.apiUrl}/usuarios/${id}`);
+    }
 }

@@ -53,4 +53,13 @@ export class PeluqueriasService {
             })
         );
     }
+    crearPeluqueria(peluqueria: any): Observable<any> {
+        return this.http.post<any>(`${this.apiUrl}/peluquerias`, peluqueria);
+    }
+    modificarPeluqueria(id: number, peluqueria: any): Observable<any> {
+        return this.http.put<any>(`${this.apiUrl}/peluquerias/${id}`, peluqueria);
+    }
+    eliminarPeluqueria(id: number): Observable<any> {
+        return this.http.delete<any>(`${this.apiUrl}/peluquerias/${id}`);
+    }
 }
