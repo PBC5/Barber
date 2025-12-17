@@ -6,12 +6,12 @@ import { Observable, catchError, of } from 'rxjs';
     providedIn: 'root'
 })
 export class UsuariosService {
-    private apiUrl = 'http://localhost:3000';
+    private apiUrl = 'http://localhost:8080/api/usuarios';
 
     constructor(private http: HttpClient) { }
 
     getUsuarios(): Observable<any[]> {
-        return this.http.get<any[]>(`${this.apiUrl}/usuarios?rol=Cliente`).pipe(
+        return this.http.get<any[]>(this.apiUrl).pipe(
             catchError(error => {
                 console.error('Error fetching usuarios:', error);
                 return of([]);
@@ -19,12 +19,12 @@ export class UsuariosService {
         );
     }
     crearUsuario(usuario: any): Observable<any> {
-        return this.http.post<any>(`${this.apiUrl}/usuarios`, usuario);
+        return this.http.post<any>(`${this.apiUrl}`, usuario);
     }
     modificarUsuario(id: number, usuario: any): Observable<any> {
-        return this.http.put<any>(`${this.apiUrl}/usuarios/${id}`, usuario);
+        return this.http.put<any>(`${this.apiUrl}/${id}`, usuario);
     }
     eliminarUsuario(id: number): Observable<any> {
-        return this.http.delete<any>(`${this.apiUrl}/usuarios/${id}`);
+        return this.http.delete<any>(`${this.apiUrl}/${id}`);
     }
 }

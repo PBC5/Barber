@@ -5,6 +5,9 @@ import { PeluqueriasService } from '../../../services/peluquerias.service';
 import { CategoriasService } from '../../../services/categorias.service';
 import { RouterLink } from '@angular/router';
 import { UsuariosService } from '../../../services/usuarios.service';
+import { Usuario } from '../../../interfaces/UsuarioInterface';
+import { Peluqueria } from '../../../interfaces/PeluqueriaInterface';
+import { Categoria } from '../../../interfaces/CategoriaInterface';
 @Component({
   selector: 'app-c-mod',
   standalone: true,
@@ -50,7 +53,7 @@ export class CMod implements OnInit {
       email: [''],
     });
 
-    this.usuariosService.getUsuarios().subscribe(usuarios => {
+    this.usuariosService.getUsuarios().subscribe((usuarios: Usuario[]) => {
       console.log('Usuarios obtenidos:', usuarios);
       const usuario = usuarios.find(u => u.id == id);
       console.log('Usuario encontrado:', usuario);
@@ -76,15 +79,19 @@ export class CMod implements OnInit {
       descripcion: ['']
     });
 
-    this.peluqueriasService.getPeluquerias().subscribe(peluquerias => {
-      const peluqueria = peluquerias.find(p => p.id == id || p.usuario_id == id);
+    this.peluqueriasService.getPeluquerias().subscribe((peluquerias: Peluqueria[]) => {
+      const peluqueria = peluquerias.find(p => p.id == Number(id) || p.usuario_id == Number(id));
       if (peluqueria) {
         this.peluqueriaForm.patchValue({
+          // @ts-ignore
           nombre: peluqueria.nombre,
+          // @ts-ignore
           email: peluqueria.email,
           telefono: peluqueria.telefono,
           direccion: peluqueria.direccion,
+          // @ts-ignore
           ciudad: peluqueria.ciudad || peluqueria.municipio,
+          // @ts-ignore
           descripcion: peluqueria.descripcion || ''
         });
       }
@@ -97,8 +104,8 @@ export class CMod implements OnInit {
       descripcion: ['']
     });
 
-    this.categoriasService.getCategorias().subscribe(categorias => {
-      const categoria = categorias.find(c => c.id == id);
+    this.categoriasService.getCategorias().subscribe((categorias: Categoria[]) => {
+      const categoria = categorias.find(c => c.id == Number(id));
       if (categoria) {
         this.categoriaForm.patchValue({
           nombre: categoria.nombre,

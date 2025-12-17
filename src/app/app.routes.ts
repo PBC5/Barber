@@ -13,7 +13,7 @@ export const routes: Routes = [
     {
         path: '',
         redirectTo: 'inicio',
-        pathMatch: 'full'
+        pathMatch: 'full'   
     },
 
     {

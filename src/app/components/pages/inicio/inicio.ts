@@ -3,6 +3,9 @@ import { CPanel } from '../../ui/c-panel/c-panel';
 import { PeluqueriasService } from '../../../services/peluquerias.service';
 import { CategoriasService } from '../../../services/categorias.service';
 import { UsuariosService } from '../../../services/usuarios.service';
+import { Peluqueria } from '../../../interfaces/PeluqueriaInterface';
+import { Categoria } from '../../../interfaces/CategoriaInterface';
+import { Usuario } from '../../../interfaces/UsuarioInterface';
 
 @Component({
   selector: 'app-inicio',
@@ -23,15 +26,15 @@ export class Inicio implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.peluqueriasService.getPeluquerias().subscribe(data => {
+    this.peluqueriasService.getPeluquerias().subscribe((data: Peluqueria[]) => {
       this.peluqueriasCount = data.length;
     });
 
-    this.categoriasService.getCategorias().subscribe(data => {
+    this.categoriasService.getCategorias().subscribe((data: Categoria[]) => {
       this.categoriasCount = data.length;
     });
 
-    this.usuariosService.getUsuarios().subscribe(data => {
+    this.usuariosService.getUsuarios().subscribe((data: Usuario[]) => {
       this.usuariosCount = data.length;
     });
   }

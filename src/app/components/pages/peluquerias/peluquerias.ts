@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PeluqueriasService } from '../../../services/peluquerias.service';
+import { Peluqueria } from '../../../interfaces/PeluqueriaInterface';
 
 @Component({
   selector: 'app-peluquerias',
@@ -11,12 +12,12 @@ import { PeluqueriasService } from '../../../services/peluquerias.service';
   styleUrl: './peluquerias.scss',
 })
 export class Peluquerias implements OnInit {
-  peluquerias: any[] = [];
+  peluquerias: Peluqueria[] = [];
 
   constructor(private peluqueriasService: PeluqueriasService) { }
 
   ngOnInit() {
-    this.peluqueriasService.getPeluquerias().subscribe(data => {
+    this.peluqueriasService.getPeluquerias().subscribe((data: Peluqueria[]) => {
       this.peluquerias = data;
     });
   }

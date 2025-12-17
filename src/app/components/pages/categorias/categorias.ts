@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CategoriasService } from '../../../services/categorias.service';
+import { Categoria } from '../../../interfaces/CategoriaInterface';
 
 @Component({
   selector: 'app-categorias',
@@ -11,16 +12,12 @@ import { CategoriasService } from '../../../services/categorias.service';
   styleUrl: './categorias.scss',
 })
 export class Categorias implements OnInit {
-  id: any;
-  nombre: any;
-  descripcion: any;
-
   constructor(private categoriasService: CategoriasService) { }
-  categorias: Categorias[] = [];
-  CatFiltradas: Categorias[] = [];
+  categorias: Categoria[] = [];
+  CatFiltradas: Categoria[] = [];
   search: string = '';
   ngOnInit() {
-    this.categoriasService.getCategorias().subscribe(data => {
+    this.categoriasService.getCategorias().subscribe((data: Categoria[]) => {
       this.categorias = data;
       this.CatFiltradas = data;
     });

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { UsuariosService } from '../../../services/usuarios.service';
+import { Usuario } from '../../../interfaces/UsuarioInterface';
 
 @Component({
     selector: 'app-usuarios',
@@ -11,12 +12,12 @@ import { UsuariosService } from '../../../services/usuarios.service';
     styleUrl: './usuarios.scss',
 })
 export class Usuarios implements OnInit {
-    usuarios: any[] = [];
+    usuarios: Usuario[] = [];
 
     constructor(private usuariosService: UsuariosService) { }
 
     ngOnInit() {
-        this.usuariosService.getUsuarios().subscribe(data => {
+        this.usuariosService.getUsuarios().subscribe((data: Usuario[]) => {
             this.usuarios = data;
         });
     }
